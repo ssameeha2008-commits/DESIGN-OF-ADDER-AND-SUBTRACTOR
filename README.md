@@ -36,20 +36,66 @@ Diff = A ⊕ B ⊕ Bin
 
 Borrow out = A'Bin + A'B + BBin
 
-**Truthtable**
 
 **Procedure**
 
-Write the detailed procedure here
+1. Type the program in Quartus software.
+2. Compile and run the program.
+3. Generate the RTL schematic and save the logic diagram.
+4. Create nodes for inputs and outputs to generate the timing diagram.
+5. For different input combinations generate the timing diagram.
 
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.*/
+Developed by: SAMEEHA S
+RegisterNumber: 25004324
+
+```
+module EXP3_2(
+    input  wire a, b, cin,   // Inputs
+    output wire sum, carry   // Outputs
+);
+
+    // Logic equations
+    assign sum   = a ^ b ^ cin;                  // XOR for sum
+    assign carry = (a & b) | (b & cin) | (a & cin); // Majority function for carry
+
+endmodule
+```
+
+```
+module EXP3_4 (
+    input  wire a, b, bin,       // Inputs
+    output wire diff, borrow     // Outputs
+);
+
+    // Logic equations
+    assign diff   = a ^ b ^ bin;                  // Difference
+    assign borrow = (~a & b) | (~(a ^ b) & bin);  // Borrow logic
+
+endmodule
+
+```
+
 
 **RTL Schematic**
+FULL ADDER
+
+<img width="988" height="653" alt="image" src="https://github.com/user-attachments/assets/fee0e8e9-f974-4ed6-b9cd-37e8306b9503" />
+FULL SUBRACTER
+
+<img width="918" height="368" alt="image" src="https://github.com/user-attachments/assets/c35c95c5-3563-4c51-8d2c-5b8c701d2c66" />
+
 
 **Output Timing Waveform**
+FULL ADDER
+
+<img width="1312" height="261" alt="image" src="https://github.com/user-attachments/assets/70d2bfdf-309b-4a04-8ec4-aa1d34f2abf7" />
+FULL SUBRACTER
+
+<img width="1291" height="289" alt="image" src="https://github.com/user-attachments/assets/2b64eb7b-59cf-45e8-aa66-c214083d7f30" />
+
 
 **Result:**
 
